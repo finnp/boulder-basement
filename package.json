@@ -12,7 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.0",
-    "dotpref": "^2.0.2",
     "first-provide-some-config": "^1.0.0",
     "lodash": "^4.17.21",
     "prompts": "^2.4.2"
