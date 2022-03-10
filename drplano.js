@@ -9,6 +9,52 @@ const client = axios.create({
   },
 });
 
+export async function bookSlot({
+  firstName,
+  lastName,
+  dateOfBirth,
+  streetAndHouseNumber,
+  postalCode,
+  city,
+  phoneMobile,
+  uscMemberId,
+  email,
+  slot,
+}) {
+  const body = {
+    clientId: 122632017,
+    shiftModelId: 155581628,
+    shiftSelector: slot.raw.selector,
+    desiredDate: null,
+    dateOfBirthString: dateOfBirth,
+    streetAndHouseNumber,
+    postalCode,
+    city,
+    phoneMobile,
+    type: "booking",
+    participants: [
+      {
+        isBookingPerson: true,
+        tariffId: 155589630,
+        dateOfBirthString: dateOfBirth,
+        firstName,
+        lastName,
+        additionalFieldValue: uscMemberId,
+        email,
+        dateOfBirth,
+      },
+    ],
+    firstName,
+    lastName,
+    email,
+    dateOfBirth,
+  };
+
+  const { data } = await client.post("/bookable", body);
+
+  console.log(data);
+}
+
 export async function getSpotsByDay() {
   const { data } = await client.get(
     "courses_dates?id=155581628&advanceToFirstMonthWithDates&start=1646089200000&end=1648764000000"
