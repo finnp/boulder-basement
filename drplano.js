@@ -52,7 +52,7 @@ export async function bookSlot({
 
   const { data } = await client.post("/bookable", body);
 
-  console.log(data);
+  return data;
 }
 
 export async function getSpotsByDay() {
