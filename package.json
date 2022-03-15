@@ -1,21 +1,33 @@
 {
   "name": "boulder-basement",
   "version": "1.0.0",
-  "description": "",
+  "description": "CLI to book a slot at the Boulder basement Berlin",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "boulder-basement": "index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.0",
-    "first-provide-some-config": "^1.0.0",
+    "first-provide-some-config": "^1.0.0",  
     "generate-google-calendar-url": "^0.0.2",
     "lodash": "^4.17.21",
     "open": "^8.4.0",
     "prompts": "^2.4.2"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finnp/boulder-basement.git"
+  },
+  "bugs": {
+    "url": "https://github.com/finnp/boulder-basement/issues"
+  },
+  "homepage": "https://github.com/finnp/boulder-basement#readme"
 }

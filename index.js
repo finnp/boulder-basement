@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import prompts from "prompts";
 import { bookSlot, getSpotsByDay } from "./drplano.js";
 import config from "first-provide-some-config";
@@ -17,6 +19,8 @@ const { day } = await prompts({
     })),
 });
 
+if (!day) process.exit(1);
+
 const { slot } = await prompts({
   type: "select",
   name: "slot",
@@ -26,6 +30,8 @@ const { slot } = await prompts({
     value: slot,
   })),
 });
+
+if (!slot) process.exit(1);
 
 const firstName = await config("firstName", "What is your first name?");
 const lastName = await config("lastName", "What is your last name?");
