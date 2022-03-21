@@ -1,6 +1,6 @@
 {
   "name": "boulder-basement",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "CLI to book a slot at the Boulder basement Berlin",
   "main": "index.js",
   "type": "module",
@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.0",
-    "first-provide-some-config": "^1.0.0",  
+    "first-provide-some-config": "^1.0.0",
     "generate-google-calendar-url": "^0.0.2",
     "lodash": "^4.17.21",
     "open": "^8.4.0",
