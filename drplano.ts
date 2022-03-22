@@ -9,6 +9,23 @@ const client = axios.create({
   },
 });
 
+interface BookSlotParameters {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  streetAndHouseNumber: string;
+  postalCode: string;
+  city: string;
+  phoneMobile: string;
+  uscMemberId: string;
+  email: string;
+  slot: {
+    raw: {
+      selector: number;
+    };
+  };
+}
+
 export async function bookSlot({
   firstName,
   lastName,
@@ -20,7 +37,7 @@ export async function bookSlot({
   uscMemberId,
   email,
   slot,
-}) {
+}: BookSlotParameters) {
   const body = {
     clientId: 122632017,
     shiftModelId: 155581628,
@@ -55,8 +72,18 @@ export async function bookSlot({
   return data;
 }
 
+interface DrPlanySpotsData {
+  state: "BOOKABLE";
+  dateList: {
+    start: string;
+    end: string;
+  }[];
+  maxCourseParticipantCount: number;
+  currentCourseParticipantCount: number;
+}
+
 export async function getSpotsByDay() {
-  const { data } = await client.get(
+  const { data } = await client.get<DrPlanySpotsData[]>(
     "courses_dates?id=155581628&advanceToFirstMonthWithDates&start=1646089200000&end=1648764000000"
   );
   const differentSpots = data
@@ -74,6 +101,6 @@ export async function getSpotsByDay() {
   return groupBy(differentSpots, "day");
 }
 
-function getStartOfDay(date) {
+function getStartOfDay(date: Date) {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate());
 }
